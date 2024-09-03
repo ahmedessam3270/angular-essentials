@@ -5,9 +5,12 @@
         @for(user of usersData; track user.id){
 
             <li>
-                <app-user [user]="user" />
+                <app-user [user]="user" (select)="onSelectUser($event)" />
             </li>
         }
     </ul>
+
+
+    <app-tasks [name]="selectedUser?.name" />
 
 </main>
