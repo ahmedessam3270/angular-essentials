@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TasksService } from './tasks.service';
 
 @Component({
@@ -7,23 +7,23 @@ import { TasksService } from './tasks.service';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input({required: true}) userId!: string;
-  @Input({required: true}) name!: string;
+  @Input({ required: true }) userId!: string;
+  @Input({ required: true }) name!: string;
   isAddingTask = false;
 
 
-  constructor(private tasksService: TasksService){}
+  constructor(private tasksService: TasksService) { }
 
-  get selectedUserTasks(){
+  get selectedUserTasks() {
     return this.tasksService.getUserTasks(this.userId);
   }
 
 
-  onStartAddTask(){
+  onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask(){
+  onCancelAddTask() {
     this.isAddingTask = false;
   }
 
